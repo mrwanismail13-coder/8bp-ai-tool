@@ -26,4 +26,4 @@ jobs:
 
     - name: Run
       run: |
-        python main.py
+        python ballpool_ai.py
