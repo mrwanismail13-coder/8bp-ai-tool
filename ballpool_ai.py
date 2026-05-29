@@ -70,7 +70,12 @@ print("DEVICE:", DEVICE)
 # 🤖 LOAD YOLO MODEL
 # =========================================================
 
-model = YOLO("best.pt")
+try:
+    model = YOLO("yolov8n.pt")
+    print("YOLO MODEL LOADED")
+except Exception as e:
+    print("MODEL LOAD FAILED:", e)
+    model = None
 
 # =========================================================
 # 🎥 DXCAM
