@@ -12,23 +12,23 @@ jobs:
 
     steps:
 
-      - uses: actions/checkout@v4
+    - uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.12"
 
-      - name: Install Dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
 
-      - name: Test Imports
-        run: |
-          python -c "import cv2"
-          python -c "import pygame"
-          python -c "import numpy"
-          python -c "import torch"
-          python -c "from ultralytics import YOLO"
-          echo BUILD SUCCESS
+    - name: Show Files
+      run: |
+        dir
+        dir models
+
+    - name: Run
+      run: |
+        python ballpool_ai.py
