@@ -58,11 +58,17 @@ print("DEVICE:", DEVICE)
 # =========================================================
 
 try:
-    model = YOLO("yolov8n.pt")
-    print("YOLO MODEL LOADED")
-except Exception as e:
-    print("MODEL LOAD FAILED:", e)
-    model = None
+    print("Current Directory:", os.getcwd())
+print("Model Exists:", os.path.exists("models/yolov8n.pt"))
+    from ultralytics import YOLO
+import os
+
+MODEL_PATH = "models/yolov8n.pt"
+
+if not os.path.exists(MODEL_PATH):
+    raise FileNotFoundError(f"Model not found: {MODEL_PATH}")
+
+model = YOLO(MODEL_PATH)
 
 # =========================================================
 # 🎮 PYGAME
