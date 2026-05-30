@@ -6,7 +6,6 @@ on:
       - main
 
 jobs:
-
   build:
 
     runs-on: windows-latest
@@ -19,7 +18,7 @@ jobs:
       with:
         python-version: "3.12"
 
-    - name: Install
+    - name: Install Dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
@@ -32,5 +31,5 @@ jobs:
     - name: Upload EXE
       uses: actions/upload-artifact@v4
       with:
-        name: ballpool_ai
+        name: ballpool-ai
         path: dist/*.exe
