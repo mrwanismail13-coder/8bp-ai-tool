@@ -58,18 +58,20 @@ print("DEVICE:", DEVICE)
 # 🧠 LOAD YOLO
 # =========================================================
 
-
 import os
+from ultralytics import YOLO
 
-MODEL_PATH = "models/yolov8n.pt"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-print("Current Directory:", os.getcwd())
-print("Model Exists:", os.path.exists(MODEL_PATH))
+MODEL_PATH = os.path.join(
+    BASE_DIR,
+    "models",
+    "yolov8n.pt"
+)
 
-if not os.path.exists(MODEL_PATH):
-    raise FileNotFoundError(
-        f"Model not found: {MODEL_PATH}"
-    )
+print("BASE_DIR =", BASE_DIR)
+print("MODEL_PATH =", MODEL_PATH)
+print("EXISTS =", os.path.exists(MODEL_PATH))
 
 model = YOLO(MODEL_PATH)
 
