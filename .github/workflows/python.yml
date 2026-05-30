@@ -23,12 +23,3 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-
-    - name: Show Files
-      run: |
-        dir
-        dir models
-
-    - name: Run
-      run: |
-        python ballpool_ai.py
