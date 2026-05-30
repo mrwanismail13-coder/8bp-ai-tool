@@ -1,3 +1,4 @@
+import os
 import pygame
 import pygame.gfxdraw
 import win32gui
@@ -57,16 +58,18 @@ print("DEVICE:", DEVICE)
 # 🧠 LOAD YOLO
 # =========================================================
 
-try:
-    print("Current Directory:", os.getcwd())
-print("Model Exists:", os.path.exists("models/yolov8n.pt"))
-    from ultralytics import YOLO
+
 import os
 
 MODEL_PATH = "models/yolov8n.pt"
 
+print("Current Directory:", os.getcwd())
+print("Model Exists:", os.path.exists(MODEL_PATH))
+
 if not os.path.exists(MODEL_PATH):
-    raise FileNotFoundError(f"Model not found: {MODEL_PATH}")
+    raise FileNotFoundError(
+        f"Model not found: {MODEL_PATH}"
+    )
 
 model = YOLO(MODEL_PATH)
 
